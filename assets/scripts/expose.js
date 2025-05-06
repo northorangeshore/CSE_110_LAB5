@@ -12,7 +12,8 @@ function init() {
 function updateVolumeImg(){
   const volumeImg = document.querySelector("#volume-controls > img");
   const volumeVal = volume.value;
-  console.log(volumeImg.src);
+  const audioVal = document.getElementsByClassName("hidden");
+  audioVal.volume = Number(volumeVal)/100;
   if(volumeVal==="0"){
     volumeImg.src="assets/icons/volume-level-0.svg";
     console.log(volumeImg.src);
