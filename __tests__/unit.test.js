@@ -15,11 +15,11 @@ test('phone number success', () => {
   expect(isPhoneNumber("123-456-7890")).toBe(true);
 });
 test('phone number fail', () => {
-  expect(isPhoneNumber("1234567890")).toBe(true);
+  expect(isPhoneNumber("1234567890")).toBe(false);
 });
 
 test('phone number fail', () => {
-  expect(isPhoneNumber("123-45-7890")).toBe(true);
+  expect(isPhoneNumber("123-45-7890")).toBe(false);
 });
 
 test('email success', () => {
@@ -31,11 +31,11 @@ test('email success', () => {
 });
 
 test('email fail', () => {
-  expect(isEmail("customer@.com")).toBe(true);
+  expect(isEmail("customer@.com")).toBe(false);
 });
 
 test('email fail', () => {
-  expect(isEmail("customer@gmail.c")).toBe(true);
+  expect(isEmail("customer@gmail.c")).toBe(false);
 });
 
 test('strong password success', () => {
@@ -43,15 +43,15 @@ test('strong password success', () => {
 });
 
 test('strong password success', () => {
-  expect(isStrongPassword("!abc12")).toBe(true);
+  expect(isStrongPassword("abc12")).toBe(true);
 });
 
 test('strong password fail', () => {
-  expect(isStrongPassword("a")).toBe(true);
+  expect(isStrongPassword("3")).toBe(false);
 });
 
 test('strong password fail', () => {
-  expect(isStrongPassword("abc123")).toBe(true);
+  expect(isStrongPassword("abc&123")).toBe(false);
 });
 
 test('date success', () => {
@@ -63,11 +63,11 @@ test('date success', () => {
 });
 
 test('date fail', () => {
-  expect(isDate("00-00-1998")).toBe(true);
+  expect(isDate("00-00-1998")).toBe(false);
 });
 
 test('date fail', () => {
-  expect(isDate("05/05/25")).toBe(true);
+  expect(isDate("05/05/25")).toBe(false);
 });
 
 test('hex color success', () => {
@@ -79,11 +79,11 @@ test('hex color success', () => {
 });
 
 test('hex color fail', () => {
-  expect(isHexColor("#FFFFF")).toBe(true);
+  expect(isHexColor("#FFFFF")).toBe(false);
 });
 
 test('hex color fail', () => {
-  expect(isHexColor("GGG")).toBe(true);
+  expect(isHexColor("GGG")).toBe(false);
 });
 
 
