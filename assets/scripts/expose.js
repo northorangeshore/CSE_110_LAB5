@@ -5,18 +5,33 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   const volume = document.getElementById("volume");
   const horn = document.getElementById("horn-select");
+  const audioButton = document.querySelector("#expose > button");
+  audioButton.addEventListener("click", playSound);
   horn.addEventListener("change", updateHorn);
   volume.addEventListener("input", updateVolumeImg);
 
   // TODO
 }
 
+function playSound(){
+  const audio = new Audio(document.getElementsByClassName("hidden").src);
+  const audioVal = document.getElementsByClassName("hidden");
+  if(isNaN(audioVal.volume)){
+    audio.volume = 0.5;
+  }
+  else{
+    audio.volume = audioVal.volume;
+  }
+  console.log(audio.volume);
+  audio.play();
+}
+
 function updateHorn(){
   const hornChoice = document.getElementById("horn-select").value;
   const hornImg = document.querySelector("#expose > img");
-  const audioVal = document.getElementsByClassName("hidden");
+  const audio = document.getElementsByClassName("hidden");
   hornImg.src="assets/images/"+hornChoice+".svg";
-  audioVal.src="assets/audio/"+hornChoice+".mp3";
+  audio.src="assets/audio/"+hornChoice+".mp3";
   // if(hornChoice=="air-horn"){
   //   hornImg.src="assets/images/air-horn.svg";
   // }
