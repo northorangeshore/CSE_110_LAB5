@@ -14,18 +14,21 @@ function init() {
 function updateHorn(){
   const hornChoice = document.getElementById("horn-select").value;
   const hornImg = document.querySelector("#expose > img");
-  if(hornChoice=="air-horn"){
-    hornImg.src="assets/images/air-horn.svg";
-  }
-  else if(hornChoice=="car-horn"){
-    hornImg.src="assets/images/car-horn.svg";
-  }
-  else if(hornChoice=="party-horn"){
-    hornImg.src="assets/images/party-horn.svg";
-  }
-  else{
-    hornImg.src="assets/images/no-image.png";
-  }
+  const audioVal = document.getElementsByClassName("hidden");
+  hornImg.src="assets/images/"+hornChoice+".svg";
+  audioVal.src="assets/audio/"+hornChoice+".mp3";
+  // if(hornChoice=="air-horn"){
+  //   hornImg.src="assets/images/air-horn.svg";
+  // }
+  // else if(hornChoice=="car-horn"){
+  //   hornImg.src="assets/images/car-horn.svg";
+  // }
+  // else if(hornChoice=="party-horn"){
+  //   hornImg.src="assets/images/party-horn.svg";
+  // }
+  // else{
+  //   hornImg.src="assets/images/no-image.png";
+  // }
 }
 
 function updateVolumeImg(){
