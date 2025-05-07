@@ -22,7 +22,11 @@ function playSound(){
   else{
     audio.volume = audioVal.volume;
   }
-  console.log(audio.volume);
+  if(audioVal.src==="assets/audio/party-horn.mp3"){
+    const jsConfetti = new JSConfetti();
+    jsConfetti.addConfetti();
+    console.log("hi");
+  }
   audio.play();
 }
 
