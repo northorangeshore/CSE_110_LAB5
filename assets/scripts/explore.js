@@ -17,16 +17,23 @@ function populateVoices(){
   for(const voice of voices){
     const option = document.createElement("option");
     option.textContent = `${voice.name}`;
+    option.setAttribute("data-name", voice.name);
     document.getElementById("voice-select").appendChild(option);    
   }
-  console.log
 }
 
 function playTalk(){
   const talkImg = document.querySelector("#explore > img");
+  const speakThis = new SpeechSynthesisUtterance(document.getElementById("text-to-speak").value);
+  const selectedVoiceIndex = document.getElementById("voice-select").selectedIndex;
+  let voices = [];
+  voices = window.speechSynthesis.getVoices();
+  const selectedVoice = voices[selectedVoiceIndex-1];
+  speakThis.voice = selectedVoice;
+  console.log(speakThis.voice);
+
   talkImg.src = "assets/images/smiling-open.png";
-//talk
-  console.log(document.getElementById("option"))
+  window.speechSynthesis.speak(speakThis);
   talkImg.src = "assets/images/smiling.png";
 
 }
