@@ -30,10 +30,9 @@ function playTalk(){
   voices = window.speechSynthesis.getVoices();
   const selectedVoice = voices[selectedVoiceIndex-1];
   speakThis.voice = selectedVoice;
-  console.log(speakThis.voice);
-
-  talkImg.src = "assets/images/smiling-open.png";
   window.speechSynthesis.speak(speakThis);
-  talkImg.src = "assets/images/smiling.png";
-
+  talkImg.src = "assets/images/smiling-open.png";
+  speakThis.onend = function() {
+    talkImg.src = "assets/images/smiling.png"
+  }
 }
